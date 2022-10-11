@@ -6,16 +6,16 @@ enum Error {
 
     private String message;
 
-    Error(){
+    Error() {
 
     }
 
-    Error(String message){
+    Error(String message) {
         this.message = message;
     }
 
-    public void writeLine(){
-        if(this != null){
+    public void writeLine() {
+        if (this != null) {
             System.out.println(this.message);
         }
 

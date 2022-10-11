@@ -6,20 +6,20 @@ enum Message {
     VICTORY("Player #player you win!!!!!!"),
     RESUME("Do you want to play againg?");
 
-   private String message;
+    private String message;
 
-   Message(String message){
-       this.message = message;
-   }
+    Message(String message) {
+        this.message = message;
+    }
 
-   public void write(){
-       System.out.println(this.message);
-   }
+    public void write() {
+        System.out.println(this.message);
+    }
 
-   public void writeLine(String player){
-       assert this == Message.VICTORY;
+    public void writeLine(String player) {
+        assert this == Message.VICTORY;
 
-       System.out.println(this.message.replaceAll("#player",""+player));
+        System.out.println(this.message.replaceAll("#player", "" + player));
 
-   }
+    }
 }
