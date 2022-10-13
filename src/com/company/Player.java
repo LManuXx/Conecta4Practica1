@@ -12,5 +12,7 @@ public class Player {
 
     }
 
-    public a
+    public play(){
+        if(this.putTokens < Coordinates.)
+    }
 }

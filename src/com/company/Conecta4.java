@@ -1,10 +1,10 @@
 package com.company;
 
-public class Cocecta4 {
+public class Conecta4 {
     private Board board;
     private Turn turn;
 
-    Cocecta4() {
+    Conecta4() {
         this.board = new Board();
         this.turn = new Turn(this.board);
     }
