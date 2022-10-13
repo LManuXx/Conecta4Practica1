@@ -12,7 +12,15 @@ public class Player {
 
     }
 
-    public play(){
-        if(this.putTokens < Coordinates.)
+    public void play(){
+        if(this.putTokens < Coordinates.getColumns()){
+            this.putTokens();
+        }else{
+            Error.WRONG_COORDINATES.toString();
+        }
+    }
+
+    private void putTokens(){
+
     }
 }
