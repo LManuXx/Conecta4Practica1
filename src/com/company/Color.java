@@ -14,4 +14,8 @@ enum Color {
         }
         return color;
     }
+
+    public void write(){
+
+    }
 }

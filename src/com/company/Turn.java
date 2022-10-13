@@ -19,5 +19,10 @@ public class Turn {
         this.activePlayer = 0;
     }
 
-
+    public void play(){
+        this.players[this.activePlayer].play();
+        if(!this.board.isFull()){
+            this.activePlayer = (this.activePlayer+1)% Turn.NUMBER_PLAYERS;
+        }
+    }
 }

@@ -25,6 +25,11 @@ public class Cocecta4 {
         } while (board.isFull());
     }
 
+    public static void main(String[] args) {
+
+    }
+
+
 
 }
 

@@ -17,4 +17,9 @@ public class Coordinates {
     public static int getRows() {
         return Coordinates.ROWS;
     }
+
+    public String getErrorMessage(){
+        return Error.WRONG_COORDINATES.toString();
+    }
+
 }
