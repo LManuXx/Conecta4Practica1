@@ -3,40 +3,62 @@ package com.company;
 public class Board {
     private Color[][] colors;
 
-    Board() {
-        this.colors = new Color[Coordinates.getColumns()][Coordinates.getRows()];
+    public Board() {
+        this.colors = new Color[Coordinates.ROWS][Coordinates.COLUMNS];
         this.reset();
     }
 
-    private void reset() {
-        for (int i = 0; i < Coordinates.getColumns(); i++) {
-            for (int j = 0; j < 6; j++) {
-                this.colors[i][j] = null;
+    public void reset() {
+        for (int i = 0; i < Coordinates.ROWS; i++) {
+            for (int j = 0; j < Coordinates.COLUMNS; j++) {
+                this.colors[i][j] = Color.NULL;
             }
         }
     }
 
-    public void putToken() {
-        //this.colors[][] =colors;
+    public void putToken(int column, Color tokenColor) {
+        Coordinates coordinate = new Coordinates(0, column);
+        while (keptSquare(coordinate)) {
+            coordinate.setRow(coordinate.getPositionRow() + 1);
+        }
+        setColors(coordinate, tokenColor);
+
+    }
+
+    public void setColors(Coordinates coordinate, Color color) {
+        this.colors[coordinate.getPositionRow()][coordinate.getPositionColumn()] = color;
+    }
+
+    public boolean keptSquare(Coordinates coordinate) {
+        return !colors[coordinate.getPositionRow()][coordinate.getPositionColumn()].isNull();
     }
 
     public boolean isFull() {
-        boolean isFull = true;
-        for (int i = 0; i < 7; i++) {
-            if (!colors[i][0].equals('X') || !colors[i][0].equals('O')) {
-                isFull = false;
+        int emptyPositions = Coordinates.COLUMNS;
+        for (int i = 0; i < Coordinates.COLUMNS; i++) {
+            if (this.columnIsFree(i)) {
+                emptyPositions--;
             }
         }
-        return isFull;
+        return emptyPositions > 0;
+    }
+
+    public boolean columnIsFree(int column) {
+        return !this.colors[Coordinates.ROWS - 1][column].isNull();
     }
 
     public void show() {
-        for (int i = 0; i < 7; i++) {
-            for (int j = 0; j < 6; j++) {
-                System.out.print(colors[i][j]);
+        for (int i = Coordinates.ROWS - 1; i >= 0; i--) {
+            for (int j = 0; j < Coordinates.COLUMNS; j++) {
+                if (this.colors[i][j].isNull()) {
+                    System.out.print("|\t \t");
+                } else {
+                    System.out.print("|\t" + this.colors[i][j] + "\t");
+                }
             }
-            System.out.print("\n");
+            System.out.print("|\n");
         }
+        System.out.println();
     }
 
 }

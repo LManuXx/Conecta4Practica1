@@ -4,7 +4,8 @@ enum Message {
     TITLE("--- Connecta 4 ---"),
     TOKEN_COORDINATE("Enter the row where you want tu put your token:"),
     VICTORY("Player #player you win!!!!!!"),
-    RESUME("Do you want to play againg?");
+    RESUME("Do you want to play againg?"),
+    BARS("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
     private String message;
 
@@ -16,10 +17,14 @@ enum Message {
         System.out.println(this.message);
     }
 
-    public void writeLine(String player) {
+    /*public void writeLine(String player) {
         assert this == Message.VICTORY;
 
         System.out.println(this.message.replaceAll("#player", "" + player));
 
+    }*/
+    @Override
+    public String toString() {
+        return message;
     }
 }

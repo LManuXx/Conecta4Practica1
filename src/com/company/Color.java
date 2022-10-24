@@ -1,21 +1,16 @@
 package com.company;
 
-enum Color {
+public enum Color {
     X,
     O,
     NULL;
 
-    public static Color getColor(int i){
-        Color color;
-        if(i == 0){
-            color = O;
-        }else{
-            color = X;
-        }
-        return color;
+    public static Color getColor(int ordinal) {
+
+        return Color.values()[ordinal];
     }
 
-    public void write(){
-
+    public boolean isNull() {
+        return this == Color.NULL;
     }
 }
