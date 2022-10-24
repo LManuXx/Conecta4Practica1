@@ -36,14 +36,14 @@ public class Board {
     public boolean isFull() {
         int emptyPositions = Coordinates.COLUMNS;
         for (int i = 0; i < Coordinates.COLUMNS; i++) {
-            if (this.columnIsFree(i)) {
+            if (this.freeColumn(i)) {
                 emptyPositions--;
             }
         }
         return emptyPositions > 0;
     }
 
-    public boolean columnIsFree(int column) {
+    public boolean freeColumn(int column) {
         return !this.colors[Coordinates.ROWS - 1][column].isNull();
     }
 

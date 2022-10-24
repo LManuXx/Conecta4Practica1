@@ -17,16 +17,16 @@ public class Player {
         Error error;
         do {
             column = Console.getInstance().readInt("Introduce column: ");
-            error = this.getPlayError(column);
+            error = this.returnPlayError(column);
         } while (!error.isNull());
         board.putToken(column, this.color);
     }
 
-    private Error getPlayError(int column) {
+    private Error returnPlayError(int column) {
         Error error = Error.NULL;
-        if (Coordinates.isOutOfBounds(column)) {
+        if (Coordinates.isOutOfLimits(column)) {
             error = Error.WRONG_COORDINATES;
-        } else if (this.board.columnIsFree(column)) {
+        } else if (this.board.freeColumn(column)) {
             error = Error.NOT_SPACE;
         }
         error.writeLine();

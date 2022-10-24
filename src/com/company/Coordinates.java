@@ -18,7 +18,7 @@ public class Coordinates {
     }
 
 
-    public static boolean isOutOfBounds(int column) {
+    public static boolean isOutOfLimits(int column) {
         return column < 0 || column >= Coordinates.COLUMNS;
     }
 
